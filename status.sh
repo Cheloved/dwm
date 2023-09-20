@@ -8,4 +8,5 @@ while true; do
     INFO=${INFO}" $(date '+%A, %B %-d') | "
     INFO=${INFO}"󱑂 $(date '+%I:%M %p') | "
     xsetroot -name "${INFO}"
+    sleep 0.4
 done
