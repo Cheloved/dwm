@@ -67,6 +67,9 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *printscreen[]  = { "flameshot", "gui", NULL };
+static const char *gammastep_on[]  = { "gammastep", "-O", "4500", NULL };
+static const char *gammastep_off[]  = { "gammastep", "-x", NULL };
 
 // Volume commands
 static const char *upvol[] =   { "amixer", "-q", "sset", "Master", "5%+", NULL };
@@ -77,10 +80,13 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 
     // Audio keys
-    // Audio keys
     { 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = upvol } },
     { 0,                     XF86XK_AudioMute, spawn,          {.v = mute } },
     { 0,              XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
+
+	{ 0,                            XK_Print,  spawn,          {.v = printscreen} },
+	{ MODKEY,                       XK_u,      spawn,          {.v = gammastep_on} },
+	{ MODKEY|ShiftMask,             XK_u,      spawn,          {.v = gammastep_off} },
 
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
