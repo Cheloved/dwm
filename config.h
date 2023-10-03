@@ -72,8 +72,8 @@ static const char *gammastep_on[]  = { "gammastep", "-O", "4500", NULL };
 static const char *gammastep_off[]  = { "gammastep", "-x", NULL };
 
 // Volume commands
-static const char *upvol[] =   { "amixer", "-q", "sset", "Master", "5%+", NULL };
-static const char *downvol[] = { "amixer", "-q", "sset", "Master", "5%-", NULL };
+static const char *upvol[] =   { "amixer", "-q", "-D", "pulse", "sset", "Master", "5%+", NULL };
+static const char *downvol[] = { "amixer", "-q", "-D", "pulse", "sset", "Master", "5%-", NULL };
 static const char *mute[] =    { "amixer", "-q", "-D", "pulse", "sset", "Master", "toggle", NULL };
 
 static const Key keys[] = {
