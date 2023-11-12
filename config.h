@@ -24,6 +24,7 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 
+
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
@@ -83,6 +84,9 @@ static const Key keys[] = {
     { 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = upvol } },
     { 0,                     XF86XK_AudioMute, spawn,          {.v = mute } },
     { 0,              XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
+
+    { MODKEY,                       XK_F1,     spawn,          {.v = downvol } },
+    { MODKEY,                       XK_F2,     spawn,          {.v = upvol } },
 
 	{ 0,                            XK_Print,  spawn,          {.v = printscreen} },
 	{ MODKEY,                       XK_u,      spawn,          {.v = gammastep_on} },
