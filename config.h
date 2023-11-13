@@ -67,6 +67,8 @@ static const Layout layouts[] = {
 // Spawn commands
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *exitcmd[] = { "/home/user/git/suckless/dwm/exit_dmenu.sh", dmenufont, col_gray1, col_gray3, col_cyan, col_gray4, NULL };
+
 static const char *termcmd[]  = { "st", NULL };
 static const char *printscreen[]  = { "flameshot", "gui", NULL };
 static const char *gammastep_on[]  = { "gammastep", "-O", "4500", NULL };
@@ -91,6 +93,8 @@ static const Key keys[] = {
 	{ 0,                            XK_Print,  spawn,          {.v = printscreen} },
 	{ MODKEY,                       XK_u,      spawn,          {.v = gammastep_on} },
 	{ MODKEY|ShiftMask,             XK_u,      spawn,          {.v = gammastep_off} },
+
+	{ MODKEY,                       XK_Escape, spawn,          {.v = exitcmd} },
 
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
